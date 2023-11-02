@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        emailjs.init('nYtWVCvBZN5kf2gei')
+    </script>
+    <title>Contactame Piero Sepúlveda</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="contact is-preload">
+    <div id="page-wrapper">
+        <header id="header">
+            <nav id="nav">
+                <ul>
+                    <li class="button primary"><a href="index.html">Welcome</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article id="main">
+            <header class="special container">
+                <span class="icon solid fa-envelope"></span>
+                <h2>Contactemonos</h2>
+                <p>Puede ser un gran comienzo para los dos ;)</p>
+            </header>
+
+            <section class="wrapper style4 special container medium">
+                <div class="content">
+                    <form id="form">
+                        <div class="field">
+                          <!-- Ocultar el campo to_name -->
+                          <label for="to_name" >para</label>
+                          <input type="text" name="to_name" id="to_name" value="Piero Sepúlveda" readonly>
+                        </div>
+                        <div class="field">
+                          <label for="from_name">tú nombre</label>
+                          <input type="text" name="from_name" id="from_name">
+                        </div>
+                        <div class="field">
+                          <label for="message">tú mensaje</label>
+                          <input type="text" name="message" id="message">
+                        </div>
+                        <div class="field">
+                          <label for="email_id">tú email</label>
+                          <input type="text" name="email_id" id="email_id">
+                        </div>
+                        <input type="submit" id="button" value="Send Email" >
+                      </form>
+                </div>
+            </section>
+        </article>
+
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/piero-sep%C3%BAlveda-vallejos-767b00274/" class="icon brands circle fa-linkedin"><span class="label">linkedin</span></a></li>
+                <li><a href="https://github.com/perxsep" class="icon brands circle fa-github"><span class="label">Github</span></a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <div id="confirmation-message"></div>
+
+    <style>
+        /* Agregar una clase CSS para ocultar el campo to_name */
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <script>
+        const btn = document.getElementById('button');
+
+    document.getElementById('form')
+    .addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    btn.value = 'Sending...';
+
+    const serviceID = 'default_service';
+    const templateID = 'template_ucg03jv';
+
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+        btn.value = 'Send Email';
+        alert('Sent!');
+        }, (err) => {
+        btn.value = 'Send Email';
+        alert(JSON.stringify(err));
+        });
+    });
+    </script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollgress.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
